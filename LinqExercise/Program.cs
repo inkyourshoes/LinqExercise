@@ -21,27 +21,50 @@ namespace LinqExercise
              */
 
             //TODO: Print the Sum of numbers
+            
+            var sum = numbers.Sum();
 
             //TODO: Print the Average of numbers
+            
+            var average = numbers.Average();
+            Console.WriteLine($"Sum: {sum}");
+            Console.WriteLine($"Average: {average}");
 
             //TODO: Order numbers in ascending order and print to the console
+            
+            var orderedNumbers = numbers.OrderBy(x => x);
+            Console.WriteLine($"Ordered numbers: {string.Join(", ", orderedNumbers)}");
 
             //TODO: Order numbers in descending order and print to the console
+            
+            var orderedNumbersDescending = numbers.OrderByDescending(x => x);
 
             //TODO: Print to the console only the numbers greater than 6
+            
+            var greaterThanSix = numbers.Where(x => x > 6);
 
             //TODO: Order numbers in any order (ascending or desc) but only print 4 of them **foreach loop only!**
+            
+            var orderedNumbers4 = numbers.OrderBy(x => x).Take(4);
+            
 
             //TODO: Change the value at index 4 to your age, then print the numbers in descending order
+            
+            numbers[4] = 35;
+            var orderedNumbersDescending2 = numbers.OrderByDescending(x => x);
 
             // List of employees ****Do not remove this****
             var employees = CreateEmployees();
 
             //TODO: Print all the employees' FullName properties to the console only if their FirstName starts with a C OR an S and order this in ascending order by FirstName.
+            var orderedEmployees = employees.OrderBy(x => x.FirstName);
 
             //TODO: Print all the employees' FullName and Age who are over the age 26 to the console and order this by Age first and then by FirstName in the same result.
+            var orderedEmployees2 = employees.Where(x => x.Age > 26).OrderBy(x => x.Age).ThenBy(x => x.FirstName);
+            
 
             //TODO: Print the Sum of the employees' YearsOfExperience if their YOE is less than or equal to 10 AND Age is greater than 35.
+            
 
             //TODO: Now print the Average of the employees' YearsOfExperience if their YOE is less than or equal to 10 AND Age is greater than 35.
 
